@@ -65,6 +65,7 @@
               }
             ],
             "styles": [
+              "src/styles/tailwind.css",
               "src/styles.scss"
             ]
           },
@@ -120,7 +121,11 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "styles": [
+                "src/styles/tailwind.css",
+                "src/styles.scss"
+              ]
             },
             "analyze-bundle": {
               "sourceMap": true,

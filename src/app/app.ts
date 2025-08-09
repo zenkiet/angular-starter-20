@@ -5,11 +5,12 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [RouterOutlet],
   template: `
-    <h1>Welcome to {{ $title() }}!</h1>
+    <div class="flex flex-col items-center justify-center h-screen">
+      <h1 class="p-4 text-2xl font-bold">Welcome to {{ $title() }}!</h1>
+    </div>
 
     <router-outlet />
   `,
-  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {

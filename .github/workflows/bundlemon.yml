@@ -12,26 +12,50 @@ jobs:
   check-bundle-size:
     runs-on: ubuntu-latest
     steps:
-      - name: Install pnpm
+      - uses: actions/checkout@v4
+
+      - name: Paths filter
+        id: changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            app:
+              - 'src/**'
+              - 'angular.json'
+              - 'tsconfig*.json'
+              - 'package.json'
+              - 'pnpm-lock.yaml'
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Setup PNPM
+        if: steps.changes.outputs.app == 'true'
         uses: pnpm/action-setup@v4
         with:
           version: 10
           run_install: false
 
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Use Node.js 22
+      - name: Setup Node.js
+        if: steps.changes.outputs.app == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install
+        if: steps.changes.outputs.app == 'true'
+        run: pnpm install --frozen-lockfile
 
-      - name: Build
+      - name: Build (no hashing for BundleMon)
+        if: steps.changes.outputs.app == 'true'
         run: npx ng build --named-chunks=true --output-hashing=none --source-map=true
 
       - name: BundleMon
+        if: steps.changes.outputs.app == 'true'
         uses: lironer/bundlemon-action@v1

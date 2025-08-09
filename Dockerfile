@@ -3,10 +3,18 @@
 #################################################
 ARG NODE_VERSION=22
 
-FROM node:${NODE_VERSION}-alpine AS build
+FROM node:${NODE_VERSION}-alpine AS base
 WORKDIR /workspace
-
+ENV CI=1
 RUN corepack enable
+
+FROM base AS deps
+COPY pnpm-lock.yaml ./
+RUN --mount=type=cache,target=/pnpm/store,id=pnpm-store \
+  pnpm fetch
+
+FROM base AS build
+WORKDIR /workspace
 
 COPY package.json .
 COPY pnpm-lock.yaml .
