@@ -1,0 +1,9 @@
+#!/bin/bash
+
+npx --no-install lint-staged ||
+(
+  echo "❌ Please check lint-staged errors!"
+  false;
+)
+
+echo "✅ Lint-staged passed!"

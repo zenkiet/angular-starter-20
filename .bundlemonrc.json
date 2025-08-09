@@ -1,0 +1,41 @@
+{
+ "baseDir": "./dist/browser",
+ "defaultCompression": "none",
+ "files": [
+  {
+   "path": "index.html",
+   "maxSize": "80kb",
+   "maxPercentIncrease": 5
+  },
+  {
+   "path": "main.js",
+   "maxSize": "450kb",
+   "maxPercentIncrease": 5
+  },
+  {
+   "path": "styles.css",
+   "maxSize": "40kb",
+   "maxPercentIncrease": 5
+  },
+  {
+   "path": "feature-a.js",
+   "maxSize": "25kb",
+   "maxPercentIncrease": 10
+  },
+  {
+   "path": "feature-b.js",
+   "maxSize": "25kb",
+   "maxPercentIncrease": 10
+  }
+ ],
+ "reportOutput": [
+  [
+   "github",
+   {
+    "checkRun": true,
+    "commitStatus": true,
+    "prComment": true
+   }
+  ]
+ ]
+}

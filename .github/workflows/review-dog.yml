@@ -1,0 +1,78 @@
+name: Code Quality Check
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  check:
+    name: Check for Changed Files
+    runs-on: ubuntu-latest
+    outputs:
+      any_changed: ${{ steps.changed-files.outputs.any_changed }}
+      changed_files: ${{ steps.changed-files.outputs.all_changed_files }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v45
+        with:
+          files: |
+            src/**/*.html
+            src/**/*.ts
+      - name: Debug changed files
+        run: |
+          echo "Any changed: ${{ steps.changed-files.outputs.any_changed }}"
+          echo "Changed files: ${{ steps.changed-files.outputs.all_changed_files }}"
+  lint-and-format:
+    name: Lint and Format Review
+    runs-on: ubuntu-latest
+    needs: check
+    if: needs.check.outputs.any_changed == 'true'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Restore or install dependencies
+        uses: actions/cache@v4
+        id: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies (if not cached)
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: pnpm install
+
+      - name: Setup reviewdog
+        uses: reviewdog/action-setup@v1.3.0
+
+      - name: Review Code with Review Dog
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "${{ needs.check.outputs.changed_files }}" | xargs npx eslint -c eslint.config.js -f rdjson | reviewdog -f=rdjson -name="ESLint" -reporter=github-pr-review -level=warning -fail-level=error
