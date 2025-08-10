@@ -89,6 +89,5 @@
   "lint-staged": {
     "*.ts": "eslint --fix ",
     "*.{ts,scss,html,json}": "prettier --cache --write"
-  },
-  "packageManager": "pnpm@10.14.0"
+  }
 }
