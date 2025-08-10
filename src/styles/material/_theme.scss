@@ -1,0 +1,57 @@
+@use '@angular/material' as mat;
+@use 'colors' as colors;
+
+html {
+  @include mat.theme((typography: (plain-family: Inter,
+        brand-family: Open Sans,
+        bold-weight: 900,
+        medium-weight: 500,
+        regular-weight: 400,
+      ),
+      density: 0,
+    ));
+
+  @include mat.button-overrides((filled-container-shape: 0.5rem,
+      outlined-container-shape: 0.5rem,
+      protected-container-shape: 0.5rem,
+      text-container-shape: 0.5rem,
+    ));
+
+  @include mat.datepicker-overrides((calendar-container-background-color: var(--bg-card),
+      calendar-date-selected-state-text-color: var(--text-primary),
+      calendar-date-selected-state-background-color: var(--color-primary),
+      calendar-date-selected-disabled-state-background-color: var(--text-hint),
+    ));
+
+  @include mat.table-overrides((background-color: var(--bg-default),
+      header-headline-color: var(--text-primary),
+    ));
+}
+
+html[data-theme='light'] {
+  @include mat.theme((color: (theme-type: light,
+        primary: colors.$primary-palette,
+        tertiary: colors.$tertiary-palette,
+      ),
+    ));
+
+  @include mat.dialog-overrides((container-color: #ffffff,
+    ));
+
+  @include mat.select-overrides((panel-background-color: #ffffff,
+    ));
+}
+
+html[data-theme='dark'] {
+  @include mat.theme((color: (theme-type: dark,
+        primary: colors.$primary-palette,
+        tertiary: colors.$tertiary-palette,
+      ),
+    ));
+
+  @include mat.dialog-overrides((container-color: #1e293b,
+    ));
+
+  @include mat.select-overrides((panel-background-color: #1e293b,
+    ));
+}

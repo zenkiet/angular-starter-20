@@ -1,0 +1,45 @@
+/* ----------------------------------------------------------------------------------------------------- */
+/*  @ Material styles
+/* ----------------------------------------------------------------------------------------------------- */
+
+@use "./material/theme";
+
+/* ----------------------------------------------------------------------------------------------------- */
+/*  @ App styles
+/* ----------------------------------------------------------------------------------------------------- */
+
+html {
+  height: 100%;
+  font-size: 16px;
+  color-scheme: light dark;
+}
+
+body {
+  font-size: var(--text-base);
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  color: var(--text-default);
+  background-color: var(--bg-default);
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+app-root router-outlet {
+  + * {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}

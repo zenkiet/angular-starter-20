@@ -1,7 +1,7 @@
 {
-  "name": "angular-starter-20",
+  "name": "angular-example",
   "version": "1.0.1",
-  "description": "Angular Starter 20",
+  "description": "Angular Example",
   "author": "ZenKiet",
   "license": "MIT",
   "repository": {
@@ -9,7 +9,6 @@
     "url": "https://github.com/zenkiet/angular-starter-20.git"
   },
   "scripts": {
-    "ng": "ng",
     "dev": "ng serve",
     "build": "ng build",
     "build:staging": "ng build --configuration staging",
@@ -19,16 +18,6 @@
     "lint-staged": "lint-staged",
     "prepare": "husky",
     "analyze-bundle": "ng build --configuration=analyze-bundle && source-map-explorer dist/**/*.js --no-border-checks"
-  },
-  "prettier": {
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
   },
   "private": true,
   "dependencies": {

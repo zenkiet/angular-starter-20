@@ -30,7 +30,9 @@ COPY . .
 # Use production mode for Angular build while keeping devDependencies installed during install
 ARG BUILD_MODE=staging
 RUN pnpm build:${BUILD_MODE}
-# RUN npx optimize-icons-cli@1.5.1 -o dist/browser -i dist/browser/assets/icons -n credit_card,custom_outline,custom_solid,heroicons_outline,heroicons_solid
+
+# Optimize icons
+RUN npx optimize-icons-cli@1.5.1 -o dist/browser -i dist/browser/icons -n heroicons_outline,heroicons_solid
 
 #################################################
 # STAGE 2: Run

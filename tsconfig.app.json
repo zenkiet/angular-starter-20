@@ -13,6 +13,10 @@
     "allowSyntheticDefaultImports": true,
     "paths": {
       "@/environments": ["environments/environment.ts"],
+      "@configs": ["src/configs/index.ts"],
+      "@core/*": ["src/app/core/*"],
+      "@pages/*": ["src/app/pages/*"],
+      "@shared/*": ["src/app/shared/*"],
     }
   },
   "include": [
@@ -21,6 +25,7 @@
   "exclude": [
     "node_modules",
     "dist",
+    "experimental/**/*",
     "src/test.ts",
     "src/**/*.spec.ts"
   ]
