@@ -1,0 +1,154 @@
+<div
+  class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-gray-800"
+>
+  <div
+    class="bg-primary-50 border-b border-gray-200 px-6 py-4 dark:border-gray-700 dark:bg-gray-700"
+  >
+    <h2 class="text-primary-800 dark:text-primary-200 text-2xl font-bold">
+      Form Controls
+    </h2>
+  </div>
+  <div class="p-6">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <!-- Input -->
+      <div class="rounded-lg bg-gray-200/60 p-5 dark:bg-slate-900/60">
+        <h3
+          class="text-primary-700 dark:text-primary-300 mb-4 flex items-center text-lg font-semibold"
+        >
+          <mat-icon class="mr-2" svgIcon="heroicons_outline:pencil" />
+          Input
+        </h3>
+
+        <mat-form-field
+          appearance="fill"
+          class="mat-dense w-full"
+          color="primary"
+          subscriptSizing="dynamic"
+        >
+          <mat-label>Standard Input</mat-label>
+          <input matInput placeholder="Type something..." />
+          <mat-icon matSuffix svgIcon="heroicons_outline:user" />
+          <mat-hint>This is a hint</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="fill"
+          class="mat-dense mt-4 w-full"
+          subscriptSizing="dynamic"
+          color="accent"
+        >
+          <mat-label>Fill Input</mat-label>
+          <input matInput [formControl]="inputControl" />
+          @if (inputControl.invalid) {
+            <mat-error>This field is required</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <!-- Select -->
+      <div class="rounded-lg bg-gray-200/60 p-5 dark:bg-slate-900/60">
+        <h3
+          class="text-primary-700 dark:text-primary-300 mb-4 flex items-center text-lg font-semibold"
+        >
+          <mat-icon class="mr-2" svgIcon="heroicons_outline:chevron-up-down" />
+          Select
+        </h3>
+        <mat-form-field
+          appearance="fill"
+          subscriptSizing="dynamic"
+          class="mat-dense w-full"
+          color="primary"
+        >
+          <mat-label>Standard Select</mat-label>
+          <mat-select [formControl]="selectControl">
+            <mat-option value="">-- Select an option --</mat-option>
+            @for (item of options; track item.value) {
+              <mat-option [value]="item.value">{{ item.label }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="fill"
+          subscriptSizing="dynamic"
+          class="mat-dense mt-4 w-full"
+          color="accent"
+        >
+          <mat-label>Multiple Select</mat-label>
+          <mat-select multiple [formControl]="multiSelectControl">
+            @for (item of options; track item.value) {
+              <mat-option [value]="item.value">{{ item.label }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-- Autocomplete -->
+      <div class="rounded-lg bg-gray-200/60 p-5 dark:bg-slate-900/60">
+        <h3
+          class="text-primary-700 dark:text-primary-300 mb-4 flex items-center text-lg font-semibold"
+        >
+          <mat-icon class="mr-2" svgIcon="heroicons_outline:magnifying-glass" />
+          Autocomplete
+        </h3>
+        <mat-form-field
+          appearance="fill"
+          subscriptSizing="dynamic"
+          class="mat-dense w-full"
+          color="primary"
+        >
+          <mat-label>Autocomplete</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Try typing 'a'"
+            [formControl]="autocompleteControl"
+            [matAutocomplete]="auto"
+          />
+          <mat-autocomplete #auto="matAutocomplete">
+            @for (option of $filterOptions(); track option) {
+              <mat-option [value]="option">{{ option }}</mat-option>
+            }
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+
+      <!-- Checkbox & Radio -->
+      <div class="rounded-lg bg-gray-200/60 p-5 dark:bg-slate-900/60">
+        <h3
+          class="text-primary-700 dark:text-primary-300 mb-4 flex items-center text-lg font-semibold"
+        >
+          <mat-icon class="mr-2" svgIcon="heroicons_outline:check-circle" />
+          Checkbox & Radio
+        </h3>
+        <div class="mb-5 flex flex-col gap-2">
+          <mat-checkbox color="primary" [formControl]="checkboxControl"
+            >Checkbox 1</mat-checkbox
+          >
+          <mat-checkbox color="accent">Checkbox 2</mat-checkbox>
+          <mat-checkbox color="warn" disabled>Disabled Checkbox</mat-checkbox>
+        </div>
+
+        <div class="mt-6">
+          <h4 class="text-md mb-3 font-medium text-gray-700 dark:text-gray-300">
+            Radio Group
+          </h4>
+          <mat-radio-group
+            class="flex flex-col gap-2"
+            [formControl]="radioControl"
+          >
+            <mat-radio-button color="primary" value="option1"
+              >Option 1</mat-radio-button
+            >
+            <mat-radio-button color="accent" value="option2"
+              >Option 2</mat-radio-button
+            >
+            <mat-radio-button color="warn" value="option3" disabled
+              >Disabled Option</mat-radio-button
+            >
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

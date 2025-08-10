@@ -1,0 +1,85 @@
+<div
+  class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-gray-800"
+>
+  <div
+    class="bg-primary-50 border-b border-gray-200 px-6 py-4 dark:border-gray-700 dark:bg-gray-700"
+  >
+    <h2 class="text-primary-800 dark:text-primary-200 text-2xl font-bold">
+      Theme Selection
+    </h2>
+  </div>
+
+  <div class="p-6">
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <button
+        mat-raised-button
+        color="primary"
+        class="flex gap-2"
+        (click)="setTheme('light')"
+      >
+        <mat-icon svgIcon="heroicons_outline:sun" />
+        <span>Light Theme</span>
+      </button>
+
+      <button
+        mat-raised-button
+        color="accent"
+        class="flex gap-2"
+        (click)="setTheme('dark')"
+      >
+        <mat-icon svgIcon="heroicons_outline:moon" />
+        Dark Theme
+      </button>
+
+      <button
+        mat-raised-button
+        color="warn"
+        class="flex gap-2"
+        (click)="setTheme('system')"
+      >
+        <mat-icon svgIcon="heroicons_outline:swatch" />
+        System Theme
+      </button>
+    </div>
+
+    <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div
+        class="bg-primary-50 hover:border-primary-300 dark:bg-primary-900 dark:hover:border-primary-600 cursor-pointer rounded-lg border-2 border-transparent p-4 text-center transition"
+      >
+        <div class="bg-primary-500 mx-auto mb-2 h-8 w-8 rounded-full"></div>
+        <p class="text-primary-700 dark:text-primary-300 text-sm font-medium">
+          Primary
+        </p>
+      </div>
+
+      <div
+        class="bg-secondary-50 hover:border-secondary-300 dark:bg-secondary-900 dark:hover:border-secondary-600 cursor-pointer rounded-lg border-2 border-transparent p-4 text-center transition"
+      >
+        <div class="bg-secondary-500 mx-auto mb-2 h-8 w-8 rounded-full"></div>
+        <p
+          class="text-secondary-700 dark:text-secondary-300 text-sm font-medium"
+        >
+          Secondary
+        </p>
+      </div>
+
+      <div
+        class="bg-tertiary-50 hover:border-tertiary-300 dark:bg-tertiary-900 dark:hover:border-tertiary-600 cursor-pointer rounded-lg border-2 border-transparent p-4 text-center transition"
+      >
+        <div class="bg-tertiary-500 mx-auto mb-2 h-8 w-8 rounded-full"></div>
+        <p class="text-tertiary-700 dark:text-accent-300 text-sm font-medium">
+          Tertiary
+        </p>
+      </div>
+
+      <div
+        class="bg-error-50 hover:border-error-300 dark:bg-error-900 dark:hover:border-error-600 cursor-pointer rounded-lg border-2 border-transparent p-4 text-center transition"
+      >
+        <div class="bg-error-500 mx-auto mb-2 h-8 w-8 rounded-full"></div>
+        <p class="text-error-700 dark:text-error-300 text-sm font-medium">
+          Error
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

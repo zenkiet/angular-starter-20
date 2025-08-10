@@ -1,16 +1,11 @@
 @import 'tailwindcss';
-@import 'tailwind-scrollbar-hide/v4';
 
 /**
 Tailwind plugins
 */
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/aspect-ratio";
-@plugin "../../shared/utils/tailwind/icon-size.js";
-
-/* Debug only */
-@plugin "tailwindcss-debug-screens";
-
+@plugin "./../../utils/tailwind/icon-size.js";
 
 /**
 Custom variants
@@ -21,7 +16,7 @@ Custom variants
 Theme variables
 */
 @theme {
-  --color-on-primary: #ffffff;
+  --color-on-primary: var(--on-primary);
   --color-primary: var(--primary-500);
 
   --color-primary-50: var(--primary-50);

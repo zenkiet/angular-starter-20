@@ -66,7 +66,8 @@
             ],
             "styles": [
               "src/styles/tailwind.css",
-              "src/styles.scss"
+              "src/styles/colors.scss",
+              "src/styles/styles.scss"
             ]
           },
           "configurations": {
@@ -124,7 +125,8 @@
               "sourceMap": true,
               "styles": [
                 "src/styles/tailwind.css",
-                "src/styles.scss"
+                "src/styles/colors.scss",
+                "src/styles/styles.scss"
               ]
             },
             "analyze-bundle": {

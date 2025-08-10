@@ -1,0 +1,110 @@
+<div
+  class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-gray-800"
+>
+  <div
+    class="bg-primary-50 border-b border-gray-200 px-6 py-4 dark:border-gray-700 dark:bg-gray-700"
+  >
+    <h2 class="text-primary-800 dark:text-primary-200 text-2xl font-bold">
+      Data Display
+    </h2>
+  </div>
+
+  <div class="p-6">
+    <!-- Table -->
+    <div class="mb-8 rounded-lg bg-slate-200/60 p-5 dark:bg-slate-900/60">
+      <h3
+        class="text-primary-700 dark:text-primary-300 mb-4 flex items-center text-lg font-semibold"
+      >
+        <mat-icon class="mr-2" svgIcon="heroicons_outline:table-cells" />
+        Table
+      </h3>
+      <div
+        class="overflow-x-auto rounded border border-gray-200 dark:border-gray-700"
+      >
+        <table mat-table class="w-full" [dataSource]="dataSource">
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <th
+              *matHeaderCellDef
+              mat-header-cell
+              class="bg-primary-50 dark:bg-primary-900 font-semibold"
+            >
+              No.
+            </th>
+            <td *matCellDef="let element" mat-cell>
+              {{ element.position }}
+            </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th
+              *matHeaderCellDef
+              mat-header-cell
+              class="bg-primary-50 dark:bg-primary-900 font-semibold"
+            >
+              Name
+            </th>
+            <td *matCellDef="let element" mat-cell>
+              {{ element.name }}
+            </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <th
+              *matHeaderCellDef
+              mat-header-cell
+              class="bg-primary-50 dark:bg-primary-900 font-semibold"
+            >
+              Weight
+            </th>
+            <td *matCellDef="let element" mat-cell>
+              {{ element.weight }}
+            </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="symbol">
+            <th
+              *matHeaderCellDef
+              mat-header-cell
+              class="bg-primary-50 dark:bg-primary-900 font-semibold"
+            >
+              Symbol
+            </th>
+            <td *matCellDef="let element" mat-cell>
+              {{ element.symbol }}
+            </td>
+          </ng-container>
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <th
+              *matHeaderCellDef
+              mat-header-cell
+              class="bg-primary-50 dark:bg-primary-900 font-semibold"
+            >
+              Actions
+            </th>
+            <td *matCellDef="let element" mat-cell>
+              <button mat-icon-button color="primary">
+                <mat-icon svgIcon="heroicons_outline:pencil" />
+              </button>
+              <button mat-icon-button color="warn">
+                <mat-icon svgIcon="heroicons_outline:trash" />
+              </button>
+            </td>
+          </ng-container>
+
+          <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+          <tr
+            *matRowDef="let row; columns: displayedColumns"
+            mat-row
+            class="hover:bg-gray-100 dark:hover:bg-gray-700"
+          ></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
