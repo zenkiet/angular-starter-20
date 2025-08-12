@@ -1,12 +1,12 @@
 {
-  "name": "angular-starter-20",
+  "name": "angular-example",
   "version": "1.0.1",
-  "description": "Angular Starter 20",
+  "description": "Angular Example",
   "author": "ZenKiet",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zenkiet/angular-starter-20.git"
+    "url": "https://github.com/zenkiet/angular-example.git"
   },
   "scripts": {
     "ng": "ng",

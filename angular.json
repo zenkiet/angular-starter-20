@@ -10,7 +10,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "angular-starter-20": {
+    "angular-example": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -139,10 +139,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-starter-20:build:production"
+              "buildTarget": "angular-example:build:production"
             },
             "development": {
-              "buildTarget": "angular-starter-20:build:development"
+              "buildTarget": "angular-example:build:development"
             }
           },
           "defaultConfiguration": "development"
