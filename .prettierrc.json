@@ -1,11 +1,28 @@
 {
-  "semi": false,
-  "singleQuote": true,
+  "useTabs": false,
+  "tabWidth": 2,
+  "trailingComma": "es5",
   "printWidth": 100,
-  "trailingComma": "all",
-  "arrowParens": "avoid",
+  "semi": true,
+  "singleQuote": true,
   "bracketSpacing": true,
+  "arrowParens": "always",
   "bracketSameLine": false,
   "singleAttributePerLine": true,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "angular",
+        "printWidth": 120
+      }
+    },
+    {
+      "files": "*.svg",
+      "options": {
+        "parser": "html"
+      }
+    }
+  ],
   "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"]
 }

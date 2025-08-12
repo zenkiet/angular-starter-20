@@ -1,0 +1,124 @@
+<div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-gray-800">
+  <div class="bg-secondary-50 border-b border-gray-200 px-6 py-4 dark:border-gray-700 dark:bg-gray-700">
+    <h2 class="text-secondary-800 dark:text-secondary-200 text-2xl font-bold">Buttons & Indicators</h2>
+  </div>
+  <div class="p-6">
+    <!-- Buttons -->
+    <div class="mb-8 rounded-lg bg-slate-200/60 p-5 dark:bg-slate-900/60">
+      <h3 class="text-secondary-700 dark:text-secondary-300 mb-4 flex items-center text-lg font-semibold">
+        <mat-icon
+          class="mr-2"
+          svgIcon="heroicons_outline:cursor-arrow-rays"
+        />
+        Buttons
+      </h3>
+      <div class="flex flex-wrap gap-4">
+        <button
+          mat-button
+          color="primary"
+        >
+          Basic
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+        >
+          Raised
+        </button>
+        <button
+          mat-stroked-button
+          color="primary"
+        >
+          Stroked
+        </button>
+        <button
+          mat-flat-button
+          color="primary"
+        >
+          Flat
+        </button>
+        <button
+          mat-icon-button
+          color="primary"
+        >
+          <mat-icon svgIcon="heroicons_outline:heart" />
+        </button>
+        <button
+          mat-fab
+          color="accent"
+        >
+          <mat-icon svgIcon="heroicons_outline:plus" />
+        </button>
+        <button
+          mat-mini-fab
+          color="warn"
+        >
+          <mat-icon svgIcon="heroicons_outline:minus" />
+        </button>
+      </div>
+
+      <h4 class="text-md mt-6 mb-3 font-medium text-gray-700 dark:text-gray-300">Color Variants</h4>
+      <div class="flex flex-wrap gap-4">
+        <button mat-raised-button>Default</button>
+        <button
+          mat-raised-button
+          color="primary"
+        >
+          Primary
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+        >
+          Accent
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+        >
+          Warn
+        </button>
+        <button
+          mat-raised-button
+          disabled
+        >
+          Disabled
+        </button>
+      </div>
+
+      <h4 class="text-md mt-6 mb-3 font-medium text-gray-700 dark:text-gray-300">Button with Icons</h4>
+      <div class="flex flex-wrap gap-4">
+        <button
+          mat-raised-button
+          color="primary"
+        >
+          <mat-icon
+            class="mr-2"
+            svgIcon="heroicons_outline:bookmark"
+          />
+          Save
+        </button>
+        <button
+          mat-stroked-button
+          color="accent"
+        >
+          <mat-icon
+            class="mr-2"
+            svgIcon="heroicons_outline:cloud-arrow-up"
+          />
+          Upload
+        </button>
+        <button
+          mat-flat-button
+          color="warn"
+        >
+          <mat-icon
+            class="mr-2"
+            svgIcon="heroicons_outline:trash"
+          />
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
