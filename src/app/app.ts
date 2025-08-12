@@ -14,5 +14,5 @@ import { RouterOutlet } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
-  protected readonly $title = signal('angular-starter-20');
+  protected readonly $title = signal('angular-example');
 }

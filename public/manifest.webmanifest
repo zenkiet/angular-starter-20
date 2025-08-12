@@ -1,6 +1,6 @@
 {
-  "name": "angular-starter-20",
-  "short_name": "angular-starter-20",
+  "name": "angular-example",
+  "short_name": "angular-example",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

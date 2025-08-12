@@ -63,3 +63,11 @@ jobs:
             type=provenance
           cache-from: type=gha,scope=${{ github.ref_name }}
           cache-to: type=gha,mode=max,scope=${{ github.ref_name }}
+
+      - name: Trigger Update
+        if: ${{ github.event_name != 'pull_request' && success() }}
+        env:
+          UPDATE_WEBHOOK_URL: ${{ secrets.UPDATE_WEBHOOK_URL }}
+          UPDATE_WEBHOOK_AUTH: ${{ secrets.UPDATE_WEBHOOK_AUTH }}
+        run: |
+          curl -u ${{ env.UPDATE_WEBHOOK_AUTH }} ${{ env.UPDATE_WEBHOOK_URL }}
